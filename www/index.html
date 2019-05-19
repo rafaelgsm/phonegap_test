@@ -48,56 +48,67 @@
 
 </head>
 
-<body>
+<body onload="onPageLoad()">
     <div class="app">
 
 
+        <!-- HOME -->
+        <div id="Home" class="tabcontent">
+            <div class="jumbotron text-center">
+              <h1>My First Bootstrap Page</h1>
+              <div id="deviceready" class="blink">
+                  <p class="event listening">Connecting to Device</p>
+                  <p class="event received">Device is Ready</p>
+              </div>
+            </div>
 
-        <div class="jumbotron text-center">
-          <h1>My First Bootstrap Page</h1>
-          <div id="deviceready" class="blink">
-              <p class="event listening">Connecting to Device</p>
-              <p class="event received">Device is Ready</p>
-          </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-4">
+                  <h3>Column 1</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-4">
+                  <h3>Column 2</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-4">
+                  <h3>Column 3</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- END HOME ****************************************************** -->
+
+
+        <div id="News" class="tabcontent">
+          <h3>News</h3>
+          <p>Some news this fine day!</p>
         </div>
 
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-4">
-              <h3>Column 1</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-            </div>
-            <div class="col-sm-4">
-              <h3>Column 2</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-            </div>
-            <div class="col-sm-4">
-              <h3>Column 3</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-            </div>
-          </div>
+        <div id="Contact" class="tabcontent">
+          <h3>Contact</h3>
+          <p>Get in touch, or swing by for a cup of coffee.</p>
+        </div>
+
+        <div id="About" class="tabcontent">
+          <h3>About</h3>
+          <p>Who we are and what we do.</p>
         </div>
 
 
-
-
-        <div id="myDIV" class="icon-bar">
-            <a class="btn active" href="#"><img src="img/logo.png" alt=""/></a>
-            <a class="btn" href="#"><img src="img/logo.png" alt=""/></a>
-            <a class="btn" href="#"><img src="img/logo.png" alt=""/></a>
-            <a class="btn" href="#"><img src="img/logo.png" alt=""/></a>
+        <div class="bottom-bar">
+            <button id="defaultOpen" class="tablink" onclick="openPage('Home', this)"><img src="img/logo.png" alt=""/></a>
+            <button class="tablink" onclick="openPage('News', this)"><img src="img/logo.png" alt=""/></a>
+            <button class="tablink" onclick="openPage('Contact', this)"><img src="img/logo.png" alt=""/></a>
+            <button class="tablink" onclick="openPage('About', this)"><img src="img/logo.png" alt=""/></a>
         </div>
 
     </div>
-
-
-
-
-
-
 
 
     <script type="text/javascript" src="cordova.js"></script>
@@ -107,16 +118,36 @@
         app.initialize();
 
 
-        // Add active class to the current button (highlight it)
-        var header = document.getElementById("myDIV");
-        var btns = header.getElementsByClassName("btn");
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function() {
-                var current = document.getElementsByClassName("active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
-            });
+        //Called when the user selects a tab.
+        //Hides all other Divs and display only the one selected based on the bottom bar.
+        function openPage(pageName,elmnt) {
+
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "#000";
+            }
+
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = "#4CAF50";
         }
+
+
+        //Initialize all layout here:
+        function onPageLoad(){
+
+            //Selects first Tab:
+            document.getElementById("defaultOpen").click();
+
+            document.addEventListener("backbutton", function(){
+                alert("back button pressed");
+            }, false);
+        }
+
     </script>
 </body>
 
