@@ -41,6 +41,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+
+    <script>
+      $(function(){
+        $("#tab1").load("tab1.html");
+        $("#tab2").load("tab2.html");
+        $("#tab3").load("tab3.html");
+        $("#tab4").load("tab4.html");
+      });
+    </script>
+
+
+
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/bottom_bar.css" />
 
@@ -52,60 +64,28 @@
     <div class="app">
 
 
-        <!-- HOME -->
-        <div id="Home" class="tabcontent">
-            <div class="jumbotron text-center">
-              <h1>My First Bootstrap Page</h1>
-              <div id="deviceready" class="blink">
-                  <p class="event listening">Connecting to Device</p>
-                  <p class="event received">Device is Ready</p>
-              </div>
-            </div>
-
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-4">
-                  <h3>Column 1</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
-                <div class="col-sm-4">
-                  <h3>Column 2</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
-                <div class="col-sm-4">
-                  <h3>Column 3</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
-              </div>
-            </div>
-        </div>
-        <!-- END HOME ****************************************************** -->
-
-
-        <div id="News" class="tabcontent">
-          <h3>News</h3>
-          <p>Some news this fine day!</p>
+        <div id="tab1" class="tabcontent">
+            <!-- Include tab1.html -->
         </div>
 
-        <div id="Contact" class="tabcontent">
-          <h3>Contact</h3>
-          <p>Get in touch, or swing by for a cup of coffee.</p>
+        <div id="tab2" class="tabcontent">
+            <!-- Include tab2.html -->
         </div>
 
-        <div id="About" class="tabcontent">
-          <h3>About</h3>
-          <p>Who we are and what we do.</p>
+        <div id="tab3" class="tabcontent">
+          <!-- Include tab3.html -->
+        </div>
+
+        <div id="tab4" class="tabcontent">
+          <!-- Include tab4.html -->
         </div>
 
 
         <div class="bottom-bar">
-            <button id="defaultOpen" class="tablink" onclick="openPage('Home', this)"><img src="img/logo.png" alt=""/></a>
-            <button class="tablink" onclick="openPage('News', this)"><img src="img/logo.png" alt=""/></a>
-            <button class="tablink" onclick="openPage('Contact', this)"><img src="img/logo.png" alt=""/></a>
-            <button class="tablink" onclick="openPage('About', this)"><img src="img/logo.png" alt=""/></a>
+            <button id="defaultOpen" class="tablink" onclick="openPage('tab1', this)"><img src="img/logo.png" alt=""/></a>
+            <button class="tablink" onclick="openPage('tab2', this)"><img src="img/logo.png" alt=""/></a>
+            <button class="tablink" onclick="openPage('tab3', this)"><img src="img/logo.png" alt=""/></a>
+            <button class="tablink" onclick="openPage('tab4', this)"><img src="img/logo.png" alt=""/></a>
         </div>
 
     </div>
